@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+
+
+    <h2>Персональные данные:</h2>
+    <table border="1" align="center" cellspacing="15">
+        <tr bgcolor="#99FFFF">
+            <th><p>Паспорт</p></th>
+            <th><p>ФИО</p></th>
+            <th><p>Адрес</p></th>
+            <th><p>Телефон</p></th>
+        </tr>
+       
+            <tr>
+                <td><p>@ViewData["id_passport"]</p></td>
+                <td><p>@ViewData["name_emp"]</p></td>
+                <td><p>@ViewData["adress"]</p></td>
+                <td><p>@ViewData["telephone"]</p></td>
+            </tr>
+        
+    </table>
+    
+
+

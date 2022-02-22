@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8b00f7a559634e32b787c912a3b964a0" Name="Diagram1">
+        <EntityTypeShape EntityType="autoparkModel.city_route" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="autoparkModel.depot" Width="1.5" PointX="0.75" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="autoparkModel.employer" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="autoparkModel.job_apply" Width="1.5" PointX="5.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="autoparkModel.tech_prop" Width="1.5" PointX="1.5" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="autoparkModel.technic" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="autoparkModel.emp_dep" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="autoparkModel.emp_tec_route" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="autoparkModel.tec_dep" Width="1.5" PointX="4" PointY="13.625" IsExpanded="true" />
+        <AssociationConnector Association="autoparkModel.fk_number_r" ManuallyRouted="false" />
+        <AssociationConnector Association="autoparkModel.fk_id_dep" ManuallyRouted="false" />
+        <AssociationConnector Association="autoparkModel.fk_id_id_dep_td" ManuallyRouted="false" />
+        <AssociationConnector Association="autoparkModel.fk_id_passport" ManuallyRouted="false" />
+        <AssociationConnector Association="autoparkModel.fk_id_passport_r" ManuallyRouted="false" />
+        <AssociationConnector Association="autoparkModel.FK__technic__name_te__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="autoparkModel.fk_id_tec_r" ManuallyRouted="false" />
+        <AssociationConnector Association="autoparkModel.fk_id_tec_td" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="autoparkModel.sas" Width="1.5" PointX="5.375" PointY="5.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

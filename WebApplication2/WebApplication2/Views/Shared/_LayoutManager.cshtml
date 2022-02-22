@@ -1,0 +1,53 @@
+﻿@using WebApplication2.Models
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Рабочий профиль</title>
+    <link rel="stylesheet" href="/Content/Style.css">
+</head>
+
+<body style="overflow-x:hidden;">
+
+    <header class="header">
+        <div class="header__selection">
+            <div class="logo" style="float: left; margin-top:6px; margin-left:215px;">
+
+                <a href="~/Home/Index"><img src="/img/лол.png" alt="" height="98px"></a>
+            </div>
+        </div>
+        @if (Singleton.getInstance(new employer()).employer.status_ == "manager")
+        {
+            <nav class="nav" style="margin-right: 215px;">
+                <a class="nav__link" href="~/Manager/Profile_">Профиль</a>
+                <a class="nav__link" href="~/Manager/WorkPlace">Рабочее место</a>
+            </nav>
+        }
+        else if (Singleton.Status() == "worker")
+        {
+            <nav class="nav" style=" margin-right: 215px;">
+                <a class="nav__link" href="~/Work/Profile_">Профиль</a>
+                <a class="nav__link" href="~/Work/Profession">Профессия</a>
+                <a class="nav__link" href="~/Work/Members">Список сотрудников</a>
+
+            </nav>
+        }
+        else if (Singleton.Status() == "admin")
+        {
+            <nav class="nav" style="margin-right: 215px;">
+                <a class="nav__link" href="~/Admin/Index">Запрос</a>
+            </nav>
+        }
+    </header>
+
+    <div class="main">
+        @RenderBody()
+    </div>
+
+
+    <footer class="footer">
+        © 2021 Ренжин Андрей
+    </footer>
+</body>
+</html>

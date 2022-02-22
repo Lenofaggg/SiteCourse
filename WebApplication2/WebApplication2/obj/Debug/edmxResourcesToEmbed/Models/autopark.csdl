@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="autoparkModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="city_route">
+    <Key>
+      <PropertyRef Name="number" />
+    </Key>
+    <Property Name="number" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="start_" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="finish_" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="info_c_route" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="emp_tec_route" Relationship="Self.fk_number_r" FromRole="city_route" ToRole="emp_tec_route" />
+  </EntityType>
+  <EntityType Name="depot">
+    <Key>
+      <PropertyRef Name="id_dep" />
+    </Key>
+    <Property Name="id_dep" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="adress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="type_dep" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="emp_dep" Relationship="Self.fk_id_dep" FromRole="depot" ToRole="emp_dep" />
+    <NavigationProperty Name="tec_dep" Relationship="Self.fk_id_id_dep_td" FromRole="depot" ToRole="tec_dep" />
+  </EntityType>
+  <EntityType Name="employer">
+    <Key>
+      <PropertyRef Name="id_passport" />
+    </Key>
+    <Property Name="id_passport" Type="Int32" Nullable="false" />
+    <Property Name="name_emp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="adress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telephone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="status_" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="login_" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password_" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="emp_dep" Relationship="Self.fk_id_passport" FromRole="employer" ToRole="emp_dep" />
+    <NavigationProperty Name="emp_tec_route" Relationship="Self.fk_id_passport_r" FromRole="employer" ToRole="emp_tec_route" />
+  </EntityType>
+  <EntityType Name="job_apply">
+    <Key>
+      <PropertyRef Name="id_apply" />
+    </Key>
+    <Property Name="id_apply" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_passport" Type="Int32" Nullable="false" />
+    <Property Name="name_j_apply" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="name_prof" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telephone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="info_j_apply" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tech_prop">
+    <Key>
+      <PropertyRef Name="name_tec" />
+    </Key>
+    <Property Name="name_tec" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="autonomy" Type="Int32" Nullable="false" />
+    <Property Name="capacity" Type="Int32" Nullable="false" />
+    <Property Name="tec_type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="technic" Relationship="Self.FK__technic__name_te__2E1BDC42" FromRole="tech_prop" ToRole="technic" />
+  </EntityType>
+  <EntityType Name="technic">
+    <Key>
+      <PropertyRef Name="id_tec" />
+    </Key>
+    <Property Name="id_tec" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="price" Type="Int32" Nullable="false" />
+    <Property Name="name_tec" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tech_prop" Relationship="Self.FK__technic__name_te__2E1BDC42" FromRole="technic" ToRole="tech_prop" />
+    <NavigationProperty Name="emp_tec_route" Relationship="Self.fk_id_tec_r" FromRole="technic" ToRole="emp_tec_route" />
+    <NavigationProperty Name="tec_dep" Relationship="Self.fk_id_tec_td" FromRole="technic" ToRole="tec_dep" />
+  </EntityType>
+  <EntityType Name="emp_dep">
+    <Key>
+      <PropertyRef Name="id_dep" />
+      <PropertyRef Name="id_passport" />
+      <PropertyRef Name="salary" />
+      <PropertyRef Name="profession" />
+    </Key>
+    <Property Name="id_dep" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_passport" Type="Int32" Nullable="false" />
+    <Property Name="salary" Type="Int32" Nullable="false" />
+    <Property Name="profession" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="depot" Relationship="Self.fk_id_dep" FromRole="emp_dep" ToRole="depot" />
+    <NavigationProperty Name="employer" Relationship="Self.fk_id_passport" FromRole="emp_dep" ToRole="employer" />
+  </EntityType>
+  <EntityType Name="emp_tec_route">
+    <Key>
+      <PropertyRef Name="number" />
+      <PropertyRef Name="id_tec" />
+      <PropertyRef Name="id_passport" />
+      <PropertyRef Name="type_e_t" />
+    </Key>
+    <Property Name="number" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_tec" Type="Int32" Nullable="false" />
+    <Property Name="id_passport" Type="Int32" Nullable="false" />
+    <Property Name="type_e_t" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="city_route" Relationship="Self.fk_number_r" FromRole="emp_tec_route" ToRole="city_route" />
+    <NavigationProperty Name="employer" Relationship="Self.fk_id_passport_r" FromRole="emp_tec_route" ToRole="employer" />
+    <NavigationProperty Name="technic" Relationship="Self.fk_id_tec_r" FromRole="emp_tec_route" ToRole="technic" />
+  </EntityType>
+  <EntityType Name="tec_dep">
+    <Key>
+      <PropertyRef Name="number_in_dep" />
+      <PropertyRef Name="id_tec" />
+      <PropertyRef Name="id_dep" />
+    </Key>
+    <Property Name="number_in_dep" Type="Int32" Nullable="false" />
+    <Property Name="id_tec" Type="Int32" Nullable="false" />
+    <Property Name="id_dep" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="depot" Relationship="Self.fk_id_id_dep_td" FromRole="tec_dep" ToRole="depot" />
+    <NavigationProperty Name="technic" Relationship="Self.fk_id_tec_td" FromRole="tec_dep" ToRole="technic" />
+  </EntityType>
+  <Association Name="fk_number_r">
+    <End Role="city_route" Type="Self.city_route" Multiplicity="1" />
+    <End Role="emp_tec_route" Type="Self.emp_tec_route" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="city_route">
+        <PropertyRef Name="number" />
+      </Principal>
+      <Dependent Role="emp_tec_route">
+        <PropertyRef Name="number" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_id_dep">
+    <End Role="depot" Type="Self.depot" Multiplicity="1" />
+    <End Role="emp_dep" Type="Self.emp_dep" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="depot">
+        <PropertyRef Name="id_dep" />
+      </Principal>
+      <Dependent Role="emp_dep">
+        <PropertyRef Name="id_dep" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_id_id_dep_td">
+    <End Role="depot" Type="Self.depot" Multiplicity="1" />
+    <End Role="tec_dep" Type="Self.tec_dep" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="depot">
+        <PropertyRef Name="id_dep" />
+      </Principal>
+      <Dependent Role="tec_dep">
+        <PropertyRef Name="id_dep" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_id_passport">
+    <End Role="employer" Type="Self.employer" Multiplicity="1" />
+    <End Role="emp_dep" Type="Self.emp_dep" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="employer">
+        <PropertyRef Name="id_passport" />
+      </Principal>
+      <Dependent Role="emp_dep">
+        <PropertyRef Name="id_passport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_id_passport_r">
+    <End Role="employer" Type="Self.employer" Multiplicity="1" />
+    <End Role="emp_tec_route" Type="Self.emp_tec_route" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="employer">
+        <PropertyRef Name="id_passport" />
+      </Principal>
+      <Dependent Role="emp_tec_route">
+        <PropertyRef Name="id_passport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__technic__name_te__2E1BDC42">
+    <End Role="tech_prop" Type="Self.tech_prop" Multiplicity="1" />
+    <End Role="technic" Type="Self.technic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tech_prop">
+        <PropertyRef Name="name_tec" />
+      </Principal>
+      <Dependent Role="technic">
+        <PropertyRef Name="name_tec" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_id_tec_r">
+    <End Role="technic" Type="Self.technic" Multiplicity="1" />
+    <End Role="emp_tec_route" Type="Self.emp_tec_route" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="technic">
+        <PropertyRef Name="id_tec" />
+      </Principal>
+      <Dependent Role="emp_tec_route">
+        <PropertyRef Name="id_tec" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_id_tec_td">
+    <End Role="technic" Type="Self.technic" Multiplicity="1" />
+    <End Role="tec_dep" Type="Self.tec_dep" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="technic">
+        <PropertyRef Name="id_tec" />
+      </Principal>
+      <Dependent Role="tec_dep">
+        <PropertyRef Name="id_tec" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="autoparkEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="city_route" EntityType="Self.city_route" />
+    <EntitySet Name="depot" EntityType="Self.depot" />
+    <EntitySet Name="employer" EntityType="Self.employer" />
+    <EntitySet Name="job_apply" EntityType="Self.job_apply" />
+    <EntitySet Name="tech_prop" EntityType="Self.tech_prop" />
+    <EntitySet Name="technic" EntityType="Self.technic" />
+    <EntitySet Name="emp_dep" EntityType="Self.emp_dep" />
+    <EntitySet Name="emp_tec_route" EntityType="Self.emp_tec_route" />
+    <EntitySet Name="tec_dep" EntityType="Self.tec_dep" />
+    <AssociationSet Name="fk_number_r" Association="Self.fk_number_r">
+      <End Role="city_route" EntitySet="city_route" />
+      <End Role="emp_tec_route" EntitySet="emp_tec_route" />
+    </AssociationSet>
+    <AssociationSet Name="fk_id_dep" Association="Self.fk_id_dep">
+      <End Role="depot" EntitySet="depot" />
+      <End Role="emp_dep" EntitySet="emp_dep" />
+    </AssociationSet>
+    <AssociationSet Name="fk_id_id_dep_td" Association="Self.fk_id_id_dep_td">
+      <End Role="depot" EntitySet="depot" />
+      <End Role="tec_dep" EntitySet="tec_dep" />
+    </AssociationSet>
+    <AssociationSet Name="fk_id_passport" Association="Self.fk_id_passport">
+      <End Role="employer" EntitySet="employer" />
+      <End Role="emp_dep" EntitySet="emp_dep" />
+    </AssociationSet>
+    <AssociationSet Name="fk_id_passport_r" Association="Self.fk_id_passport_r">
+      <End Role="employer" EntitySet="employer" />
+      <End Role="emp_tec_route" EntitySet="emp_tec_route" />
+    </AssociationSet>
+    <AssociationSet Name="FK__technic__name_te__2E1BDC42" Association="Self.FK__technic__name_te__2E1BDC42">
+      <End Role="tech_prop" EntitySet="tech_prop" />
+      <End Role="technic" EntitySet="technic" />
+    </AssociationSet>
+    <AssociationSet Name="fk_id_tec_r" Association="Self.fk_id_tec_r">
+      <End Role="technic" EntitySet="technic" />
+      <End Role="emp_tec_route" EntitySet="emp_tec_route" />
+    </AssociationSet>
+    <AssociationSet Name="fk_id_tec_td" Association="Self.fk_id_tec_td">
+      <End Role="technic" EntitySet="technic" />
+      <End Role="tec_dep" EntitySet="tec_dep" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

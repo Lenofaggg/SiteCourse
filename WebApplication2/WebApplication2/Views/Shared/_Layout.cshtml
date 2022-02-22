@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЭкоТранспорт</title>
+    <link rel="stylesheet" href="/Content/Style.css">
+</head>
+
+<body style="overflow-x:hidden;">
+
+<header class="header">
+    <div class="header__selection">
+        <div class="logo" style="float: left; margin-top:6px; margin-left:215px;">
+
+            <a href="~/Home/Index"><img src="/img/лол.png" alt="" height="98px"></a>
+        </div>
+    </div>
+
+    <nav class="nav">
+        <a class="nav__link" href="~/Home/Inform">О нас</a>
+
+        <a class="nav__link" href="~/Home/Passenger">Пассажирам</a>
+        <a class="nav__link" href="~/Home/Application">Хочу работать</a>
+           
+        <a class="nav__link" href="~/Home/Authorization">Работникам</a>
+    </nav>
+
+    <div class="header__selection" style="float: right; margin-top:6px; margin-right:215px;">
+        <a class="social__link" href="https://instagram.com">
+            <img src="/img/ig.png" alt="" width="32.67px"
+                 height="31.8px">
+        </a>
+        <a class="social__link" href="https://vk.com">
+            <img src="/img/vk.png" alt="" width="27.6px"
+                 height="26.67px">
+        </a>
+    </div>
+</header>
+<div class="main">
+    @RenderBody()
+</div>
+    
+<footer class="footer">
+    Все права защищены
+    <br>
+    © 2021 Ренжин Андрей
+</footer>
+</body>
+</html>

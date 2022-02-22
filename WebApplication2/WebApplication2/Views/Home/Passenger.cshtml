@@ -1,0 +1,48 @@
+﻿@model WebApplication2.Models.emp_tec_route
+
+@{
+    ViewBag.Title = "Passenger";
+}
+
+<h3>Транспорт на маршруте</h3>
+
+<form class="form" action="/Home/Passenger" method="post">
+    @Html.AntiForgeryToken()
+    <p>
+        <label for="number"><strong>Авотбусы на маршруте:</strong></label>
+        @Html.EditorFor(model => model.number)
+  
+    </p>
+   
+    <input type='submit' value="Вывести" />
+</form>
+
+
+<hr />
+<hr />
+
+<table border="1" align="center" cellspacing="15">
+    <tr bgcolor="#99FFFF">
+        <th>
+            <p>Маршрут</p>
+        </th>
+        <th>
+            <p>id Техники</p>
+        </th>
+    </tr>
+    @if (ViewBag.TechRoute != null)
+    {
+        foreach (var d in ViewBag.TechRoute)
+        {
+            <tr>
+                <td><p>@d.number</p></td>
+                <td><p>@d.id_tec</p></td>
+
+            </tr>
+        }
+    }
+   
+    
+</table>
+
+

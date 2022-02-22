@@ -1,0 +1,35 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+
+<h2>Введите SQL запрос</h2>
+
+
+<form action="Index" method="post">
+    <textarea id="names" name="query"
+              type="text" value=""></textarea>
+    <button>Отправить</button>
+</form>
+@if (ViewBag.adm != null)
+{
+    if (ViewBag.adm.GetType() != typeof(System.String))
+    {
+        <table border="1" align="center" cellspacing="15">
+
+            @foreach (var d in ViewBag.adm)
+            {
+                <tr>
+                    @for (int i = 0; i < d.Length; i++)
+                    {
+                        <td>@d[i]</td>
+                    }
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <p>@ViewBag.adm</p>
+    }
+}

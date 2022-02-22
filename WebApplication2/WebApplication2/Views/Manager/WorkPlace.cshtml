@@ -1,0 +1,385 @@
+﻿
+
+@{
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+
+<h2>Для менеджера</h2>
+
+<div class="content">
+    <div class="content__note" style="width: 65%; max-height: 450px;overflow: hidden; overflow-y: scroll">
+        <h3 align="center">Таблица заявок</h3>
+        <table border="1" align="center" cellspacing="15" >
+            <tr bgcolor="#99FFFF">
+
+                <th>
+                    <p>Паспорт</p>
+                </th>
+                <th>
+                    <p>ФИО</p>
+                </th>
+                <th>
+                    <p>Профессия</p>
+                </th>
+                <th>
+                    <p>Телефон</p>
+                </th>
+                <th>
+                    <p>Опыт работы</p>
+                </th>
+            </tr>
+            @foreach (var d in ViewBag.ja)
+            {
+                <tr>
+                    <td><p>@d.id_passport</p></td>
+                    <td><p>@d.name_j_apply</p></td>
+                    <td><p>@d.name_prof</p></td>
+                    <td><p>@d.telephone</p></td>
+                    <td><p>@d.info_j_apply</p></td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div>
+        
+        <form class="form" action="/Manager/WorkPlaceRmJA" method="post">
+            @Html.AntiForgeryToken()
+            <h3>Удалить заявку</h3>
+            <p>
+                <label for="id_passport"><strong>Паспорт:</strong></label><br />
+                <input class="text-box single-line" id="id_passport" name="id_passport" type="text" value="">
+            </p>
+
+            <input type='submit' value="Удалить из таблицы" />
+        </form>
+    </div>
+</div>
+<hr />
+<div class="content">
+    <div class="content__note" style="width: 65%; max-height: 700px;overflow: hidden; overflow-y: scroll">
+        <h3 align="center">Таблица работников</h3>
+        <table border="1" align="center" cellspacing="15">
+            <tr bgcolor="#99FFFF">
+
+                <th>
+                    <p>Паспорт</p>
+                </th>
+                <th>
+                    <p>ФИО</p>
+                </th>
+                <th>
+                    <p>Адрес</p>
+                </th>
+                <th>
+                    <p>Телефон</p>
+                </th>
+                <th>
+                    <p>Роль</p>
+                </th>
+                <th>
+                    <p>Логин</p>
+                </th>
+                <th>
+                    <p>Пароль</p>
+                </th>
+
+            </tr>
+            @foreach (var d in ViewBag.emp)
+            {
+                <tr>
+                    <td><p>@d.id_passport</p></td>
+                    <td><p>@d.name_emp</p></td>
+                    <td><p>@d.adress</p></td>
+                    <td><p>@d.telephone</p></td>
+                    <td><p>@d.status_</p></td>
+                    <td><p>@d.login_</p></td>
+                    <td><p>@d.password_</p></td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div>
+       
+        <form class="form" action="/Manager/WorkPlaceAdEmp" method="post">
+            @Html.AntiForgeryToken()
+            <h3>Добавить работника</h3>
+            <p>
+                <label for="id_passport"><strong>Паспорт:</strong></label><br />
+                <input class="text-box single-line" id="id_passport" name="id_passport" type="text" value=""><br />
+
+                <label for="name_emp"><strong>ФИО:</strong></label><br />
+                <input class="text-box single-line" id="name_emp" name="name_emp" type="text" value=""><br />
+
+                <label for="adress"><strong>Адрес:</strong></label><br />
+                <input class="text-box single-line" id="adress" name="adress" type="text" value=""><br />
+
+                <label for="telephone"><strong>Телефон:</strong></label><br />
+                <input class="text-box single-line" id="telephone" name="telephone" type="text" value=""><br />
+
+                <label for="status_"><strong>Роль:</strong></label><br />
+                <input class="text-box single-line" id="status_" name="status_" type="text" value=""><br />
+
+                <label for="login_"><strong>Логин:</strong></label><br />
+                <input class="text-box single-line" id="login_" name="login_" type="text" value=""><br />
+
+                <label for="password_"><strong>Пароль:</strong></label><br />
+                <input class="text-box single-line" id="password_" name="password_" type="text" value=""><br />
+            </p>
+
+            <input type='submit' value="Добавить" />
+        </form>
+        
+        <form class="form" action="/Manager/WorkPlaceRmEmp" method="post">
+            @Html.AntiForgeryToken()
+            <h3>Удалить работника</h3>
+            <p>
+                <label for="id_passport"><strong>Паспорт:</strong></label><br />
+                <input class="text-box single-line" id="id_passport" name="id_passport" type="text" value="">
+            </p>
+
+            <input type='submit' value="Удалить" />
+        </form>
+    </div>
+</div>
+<hr />
+<div class="content">
+    <div class="content__note" style="width: 65%; max-height: 1050px;overflow: hidden; overflow-y: scroll">
+        <h3 align="center">Таблица работников в депо</h3>
+        <table border="1" align="center" cellspacing="15">
+            <tr bgcolor="#99FFFF">
+
+                <th>
+                    <p>Депо</p>
+                </th>
+                <th>
+                    <p>Паспорт</p>
+                </th>
+                <th>
+                    <p>З/п</p>
+                </th>
+                <th>
+                    <p>Профессия</p>
+                </th>
+            </tr>
+            @foreach (var d in ViewBag.ed)
+            {
+                <tr>
+                    <td><p>@d.id_dep</p></td>
+                    <td><p>@d.id_passport</p></td>
+                    <td><p>@d.salary</p></td>
+                    <td><p>@d.profession</p></td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div>
+
+        <form class="form" action="/Manager/WorkPlaceRmED" method="post">
+            @Html.AntiForgeryToken()
+            <h3>Удалить работу работника</h3>
+            <p>
+                <label for="id_passport"><strong>Паспорт:</strong></label><br />
+                <input class="text-box single-line" id="id_passport" name="id_passport" type="text" value="">
+            </p>
+
+            <input type='submit' value="Удалить" />
+        </form>
+        <form class="form" action="/Manager/WorkPlaceAdED" method="post">
+            @Html.AntiForgeryToken()
+            <h3>Добавить работу работнику</h3>
+            <p>
+                <label for="id_dep"><strong>Депо:</strong></label><br />
+                <input class="text-box single-line" id="id_paid_depssport" name="id_dep" type="text" value=""><br />
+
+                <label for="id_passport"><strong>Паспорт:</strong></label><br />
+                <input class="text-box single-line" id="id_passport" name="id_passport" type="text" value=""><br />
+
+                <label for="salary"><strong>З/п:</strong></label><br />
+                <input class="text-box single-line" id="salary" name="salary" type="text" value=""><br />
+
+                <label for="id_passport"><strong>Профессия:</strong></label><br />
+                <input class="text-box single-line" id="profession" name="profession" type="text" value=""><br />
+            </p>
+
+            <input type='submit' value="Добавить" />
+        </form>
+        <form class="form" action="/Manager/WorkPlaceUpdEmp" method="post">
+            @Html.AntiForgeryToken()
+            <h3>Сменить работу работника</h3>
+            <p>
+                <label for="id_dep"><strong>Депо:</strong></label><br />
+                <input class="text-box single-line" id="id_paid_depssport" name="id_dep" type="text" value=""><br />
+
+                <label for="id_passport"><strong>Паспорт:</strong></label><br />
+                <input class="text-box single-line" id="id_passport" name="id_passport" type="text" value=""><br />
+
+                <label for="salary"><strong>З/п:</strong></label><br />
+                <input class="text-box single-line" id="salary" name="salary" type="text" value=""><br />
+
+                <label for="id_passport"><strong>Профессия:</strong></label><br />
+                <input class="text-box single-line" id="profession" name="profession" type="text" value=""><br />
+            </p>
+
+            <input type='submit' value="Сменить" />
+        </form>
+    </div>
+</div>
+<hr />
+<h2>Для менеджера-диспетчера</h2>
+
+<div class="content">
+    <div class="content__note" style="width: 65%; max-height: 1050px;overflow: hidden; overflow-y: scroll">
+        <h3 align="center">Городские маршруты</h3>
+        <table border="1" align="center" cellspacing="15">
+            <tr bgcolor="#99FFFF">
+
+                <th>
+                    <p>Номер</p>
+                </th>
+                <th>
+                    <p>Начало</p>
+                </th>
+                <th>
+                    <p>Конец</p>
+                </th>
+                <th>
+                    <p>Информация</p>
+                </th>
+            </tr>
+            @foreach (var d in ViewBag.num)
+            {
+                <tr>
+                    <td><p>@d.number</p></td>
+                    <td><p>@d.start_</p></td>
+                    <td><p>@d.finish_</p></td>
+                    <td><p>@d.info_c_route</p></td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+<hr />
+<div class="content">
+    <div class="content__note" style="width: 65%; max-height: 1050px;overflow: hidden; overflow-y: scroll">
+        <h3 align="center">Таблица транспорта в депо</h3>
+        <table border="1" align="center" cellspacing="15">
+            <tr bgcolor="#99FFFF">
+
+                <th>
+                    <p>idТехники</p>
+                </th>
+                <th>
+                    <p>idДепо</p>
+                </th>
+                <th>
+                    <p>Номер техники в этом депо</p>
+                </th>
+            </tr>
+            @foreach (var d in ViewBag.td)
+            {
+                <tr>
+                    <td><p>@d.id_tec</p></td>
+                    <td><p>@d.id_dep</p></td>
+                    <td><p>@d.number_in_dep</p></td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div>
+
+        <form class="form" action="/Manager/WorkPlaceRmTD" method="post">
+            @Html.AntiForgeryToken()
+            <h3>Удалить транспорт из депо</h3>
+            <p>
+                <label for="id_tec"><strong>idТехники:</strong></label><br />
+                <input class="text-box single-line" id="id_tec" name="id_tec" type="text" value="">
+            </p>
+
+            <input type='submit' value="Удалить" />
+        </form>
+        <form class="form" action="/Manager/WorkPlaceAdTD" method="post">
+            @Html.AntiForgeryToken()
+            <h3>Добавить транспорт в депо</h3>
+            <p>
+                <label for="id_dep"><strong>idДепо:</strong></label><br />
+                <input class="text-box single-line" id="id_dep" name="id_dep" type="text" value=""><br />
+
+                <label for="id_tec"><strong>idТехники:</strong></label><br />
+                <input class="text-box single-line" id="id_tec" name="id_tec" type="text" value=""><br />
+            </p>
+
+            <input type='submit' value="Добавить" />
+        </form>
+       
+    </div>
+</div>
+<hr />
+<div class="content">
+    <div class="content__note" style="width: 65%; max-height: 1050px;overflow: hidden; overflow-y: scroll">
+        <h3 align="center">Транспорт на маршруте</h3>
+        <table border="1" align="center" cellspacing="15">
+            <tr bgcolor="#99FFFF">
+
+                <th>
+                    <p>Маршрут</p>
+                </th>
+                <th>
+                    <p>idТехники</p>
+                </th>
+                <th>
+                    <p>Рабочий</p>
+                </th>
+                <th>
+                    <p>Тип смены</p>
+                </th>
+            </tr>
+            @foreach (var d in ViewBag.etr)
+            {
+        <tr>
+            <td><p>@d.number</p></td>
+            <td><p>@d.id_tec</p></td>
+            <td><p>@d.id_passport</p></td>
+            <td><p>@d.type_e_t</p></td>
+        </tr>
+            }
+        </table>
+    </div>
+    <div>
+
+        <form class="form" action="/Manager/WorkPlaceRmETR" method="post">
+            @Html.AntiForgeryToken()
+            <h3>Удалить со смены</h3>
+            <p>
+                <label for="id_tec"><strong>idТехники:</strong></label><br />
+                <input class="text-box single-line" id="id_tec" name="id_tec" type="text" value="">
+            </p>
+
+            <input type='submit' value="Удалить" />
+        </form>
+        <form class="form" action="/Manager/WorkPlaceAdETR" method="post">
+            @Html.AntiForgeryToken()
+            <h3>Добавить транспорт на смену</h3>
+            <p>
+                <label for="id_passport"><strong>idПаспорта:</strong></label><br />
+                <input class="text-box single-line" id="id_passport" name="id_passport" type="text" value=""><br />
+
+                <label for="id_tec"><strong>idТехники:</strong></label><br />
+                <input class="text-box single-line" id="id_tec" name="id_tec" type="text" value=""><br />
+
+                <label for="number"><strong>Маршрут:</strong></label><br />
+                <input class="text-box single-line" id="number" name="number" type="text" value=""><br />
+            
+                <input type="radio" id="contactChoice1"
+                       name="type_e_t" value="morning">
+                <label for="contactChoice1">Утро</label>
+
+                <input type="radio" id="contactChoice2"
+                       name="type_e_t" value="even">
+                <label for="contactChoice2">Вечер</label>
+            </p>
+           
+            <input type='submit' value="Добавить" />
+        </form>
+
+    </div>
+</div>

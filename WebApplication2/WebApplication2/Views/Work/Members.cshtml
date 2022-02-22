@@ -1,0 +1,38 @@
+﻿
+@{
+
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+
+}
+
+<h3>Список сотрудников</h3>
+<table border="1" align="center" cellspacing="15" >
+    <tr bgcolor="#99FFFF">
+        <th>
+            <p>Имя</p>
+        </th>
+        <th>
+            <p>Адресс</p>
+        </th>
+        <th>
+            <p>Телефон</p>
+        </th>
+        <th>
+            <p>Место работы</p>
+        </th>
+        <th>
+            <p>Профессия</p>
+        </th>
+    </tr>
+    @foreach (var d in ViewBag.members)
+    {
+        <tr>
+            <td><p>@d.emp.name_emp</p></td>
+            <td><p>@d.emp.adress</p></td>
+            <td><p>@d.emp.telephone</p></td>
+            <td><p>Депо # @d.ed.id_dep</p></td>
+            <td><p>@d.ed.profession</p></td>
+        </tr>
+    }
+</table>
+

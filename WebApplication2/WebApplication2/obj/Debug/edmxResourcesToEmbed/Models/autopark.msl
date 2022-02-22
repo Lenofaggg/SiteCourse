@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище autoparkModelContainer" CdmEntityContainer="autoparkEntities">
+    <EntitySetMapping Name="city_route">
+      <EntityTypeMapping TypeName="autoparkModel.city_route">
+        <MappingFragment StoreEntitySet="city_route">
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="start_" ColumnName="start_" />
+          <ScalarProperty Name="finish_" ColumnName="finish_" />
+          <ScalarProperty Name="info_c_route" ColumnName="info_c_route" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="depot">
+      <EntityTypeMapping TypeName="autoparkModel.depot">
+        <MappingFragment StoreEntitySet="depot">
+          <ScalarProperty Name="id_dep" ColumnName="id_dep" />
+          <ScalarProperty Name="adress" ColumnName="adress" />
+          <ScalarProperty Name="type_dep" ColumnName="type_dep" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employer">
+      <EntityTypeMapping TypeName="autoparkModel.employer">
+        <MappingFragment StoreEntitySet="employer">
+          <ScalarProperty Name="id_passport" ColumnName="id_passport" />
+          <ScalarProperty Name="name_emp" ColumnName="name_emp" />
+          <ScalarProperty Name="adress" ColumnName="adress" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="status_" ColumnName="status_" />
+          <ScalarProperty Name="login_" ColumnName="login_" />
+          <ScalarProperty Name="password_" ColumnName="password_" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="job_apply">
+      <EntityTypeMapping TypeName="autoparkModel.job_apply">
+        <MappingFragment StoreEntitySet="job_apply">
+          <ScalarProperty Name="id_apply" ColumnName="id_apply" />
+          <ScalarProperty Name="id_passport" ColumnName="id_passport" />
+          <ScalarProperty Name="name_j_apply" ColumnName="name_j_apply" />
+          <ScalarProperty Name="name_prof" ColumnName="name_prof" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="info_j_apply" ColumnName="info_j_apply" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tech_prop">
+      <EntityTypeMapping TypeName="autoparkModel.tech_prop">
+        <MappingFragment StoreEntitySet="tech_prop">
+          <ScalarProperty Name="name_tec" ColumnName="name_tec" />
+          <ScalarProperty Name="autonomy" ColumnName="autonomy" />
+          <ScalarProperty Name="capacity" ColumnName="capacity" />
+          <ScalarProperty Name="tec_type" ColumnName="tec_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="technic">
+      <EntityTypeMapping TypeName="autoparkModel.technic">
+        <MappingFragment StoreEntitySet="technic">
+          <ScalarProperty Name="id_tec" ColumnName="id_tec" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="name_tec" ColumnName="name_tec" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="emp_dep">
+      <EntityTypeMapping TypeName="autoparkModel.emp_dep">
+        <MappingFragment StoreEntitySet="emp_dep">
+          <ScalarProperty Name="id_dep" ColumnName="id_dep" />
+          <ScalarProperty Name="id_passport" ColumnName="id_passport" />
+          <ScalarProperty Name="salary" ColumnName="salary" />
+          <ScalarProperty Name="profession" ColumnName="profession" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="emp_tec_route">
+      <EntityTypeMapping TypeName="autoparkModel.emp_tec_route">
+        <MappingFragment StoreEntitySet="emp_tec_route">
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="id_tec" ColumnName="id_tec" />
+          <ScalarProperty Name="id_passport" ColumnName="id_passport" />
+          <ScalarProperty Name="type_e_t" ColumnName="type_e_t" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tec_dep">
+      <EntityTypeMapping TypeName="autoparkModel.tec_dep">
+        <MappingFragment StoreEntitySet="tec_dep">
+          <ScalarProperty Name="number_in_dep" ColumnName="number_in_dep" />
+          <ScalarProperty Name="id_tec" ColumnName="id_tec" />
+          <ScalarProperty Name="id_dep" ColumnName="id_dep" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Profession";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+
+<h2>Данные профессии:</h2>
+<table border="1" align="center" cellspacing="15">
+    <tr bgcolor="#99FFFF">
+        <th><p>Паспорт</p></th>
+        <th><p>Место работы</p></th>
+        <th><p>З/п</p></th>
+        <th><p>Профессия</p></th>
+    </tr>
+       
+    <tr>
+        <td><p>@ViewData["id_passport"]</p></td>
+        <td><p>Депо #@ViewData["id_dep"]</p></td>
+        <td><p>@ViewData["salary"]</p></td>
+        <td><p>@ViewData["profession"] </p></td>
+    </tr>
+    
+</table>
+

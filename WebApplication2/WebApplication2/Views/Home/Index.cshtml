@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="intro">
+    <div>
+        <h1>Мы - </h1>
+    </div>
+
+    <div style="position: absolute;  top: 315px; left: 195px;">
+        <img src="/img/логоМолния1.png" alt="" height="350px">
+    </div>
+
+    <div style="position: absolute; left: 60%; ">
+        <img src="/img/общее.png" alt="" height="600px">
+    </div>
+</div>
+
+
+<!-- 35% -->
+<div class="content">
+    <div class="content__note" style="width: 65%; max-height: 450px;overflow: hidden; overflow-y: scroll">
+        <h1 align="center">Изменения маршрутов</h1>
+        <ul >
+            @foreach (var d in ViewBag.city_route)
+            {
+                if (d.info_c_route != null)
+                {
+                    <li>
+                        <details>
+
+                            <summary>
+
+                                Маршрут @d.number изменён
+                            </summary>
+                            <p>
+                                @d.info_c_route
+                            </p>
+                        </details>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+
+    <div style="width: 25%;">
+        <figure class="content__button">
+            <a href="~/Home/Passenger">
+                <img src="/img/тронлайн.png" alt="" width="100%">
+            </a>
+        </figure>
+
+        <figure class="content__button">
+            <a href="https://www.admkirov.ru/">
+                <img src="/img/админы.png" alt="" width="100%">
+            </a>
+        </figure>
+    </div>
+</div>
